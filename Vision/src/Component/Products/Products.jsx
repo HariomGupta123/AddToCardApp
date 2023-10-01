@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom"
 import "./Products.css";
 import axios from "axios"
 export const SearchText=createContext();
-const Products = ({children}) => {
-  const [productImage,setProductImage]=useState([]);
-  const navigate=useNavigate();
+const Products = ({productContains}) => {
+    const navigate=useNavigate();
+ {/* const [productImage,setProductImage]=useState([]);
+
  
   useEffect(() => {
     const fetch = async () => {
@@ -22,9 +23,10 @@ const Products = ({children}) => {
     const filtersearch=productImage.filter((item)=>(item.user.first_name.toLowerCase().includes(searchItem.toLowerCase())))
     setProductImage(filtersearch);
   }
+*/}
   return (
     <div className="container" >
-      {productImage.map((api, ind) => {
+      {productContains.map((api, ind) => {
         return (
           <div key={ind}>
             <div className="col-md-4 ">

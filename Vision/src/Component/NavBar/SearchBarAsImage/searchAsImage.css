@@ -1,0 +1,55 @@
+/* Style the input container */
+.input-image {
+    width: 200px;
+    position: relative;
+}
+
+/* Style the input field itself */
+.input-image input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    /* Set the desired height */
+    cursor: pointer;
+    opacity: 0;
+}
+
+/* Style the label to resemble a button */
+.input-image label {
+    display: inline-block;
+    padding-left: 20px;
+    padding-top: 9px;
+    background-color: #cfd3d7;
+    width: 60px;
+    height: 40px;
+    border-right:1px solid #557f2a;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Style the camera icon */
+.input-image label i.fa-camera {
+    margin-right: 10px;
+    color: black;
+    /* Adjust as needed to control the icon's spacing */
+}
+
+/* Hide the "No file chosen" text */
+.input-image input[type="file"]+label::after {
+    content: ' ';
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    color: transparent;
+}
+
+/* Style the label on hover for better user feedback */
+.input-image label:hover {
+    background-color: #557f2a;
+}

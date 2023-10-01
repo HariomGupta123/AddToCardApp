@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import SearchBar from "../NavBar/uploadImage/SearchBar";
+import SearchBar from "../NavBar/SearchBarAsImage/SearchAsImage";
 import Products from "../Products/Products";
 import "./home.css";
 
-const Home = () => {
+const Home = ({ handleSearchTerms, productContains }) => {
   return (
     <div>
       <div className="home">
         <span>
-          <Products />
+          <Products handleSearchTerms={handleSearchTerms} productContains={productContains}/>
         </span>
       </div>
     </div>
