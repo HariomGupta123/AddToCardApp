@@ -1,0 +1,27 @@
+.form-login{
+    position: fixed;
+        top: 100px;
+        bottom: 200px;
+        right: 150px;
+        width: 30%;
+        height: 40%;
+      background-color: aquamarine;
+      border-radius: 40px;
+        z-index: 99;
+        color: rgb(246, 247, 248);
+        
+}
+ .cancel-btn {
+   position: absolute;
+   right: 20px;
+   bottom: 10px;
+   color: rgb(237, 237, 237);
+   background-color: rgb(108, 108, 193);
+   border-radius: 5px;
+   /* Place it at the bottom */
+   width: 20%;
+   padding: 5px;
+   text-align: center;
+   cursor: pointer;
+ }
+
