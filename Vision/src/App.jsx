@@ -9,17 +9,30 @@ import AppContext from './context/AppContext';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 function App() {
+  const [Lisoading,setIsLoading]=useState(false);
+  const [error,setError]=useState('')
     const [productContain, setProductContain] = useState([]);
-
+const page=1;
   useEffect(() => {
     const fetch = async () => {
+      try{
+        setIsLoading(true)
       const result = await axios.get(
-        "https://api.unsplash.com/photos/?client_id=tlAnkqDhDQTe1twR6hSRVg36FpIR35T4iztAY-oabDA",
+        
+          "https://api.unsplash.com/photos/?client_id=tlAnkqDhDQTe1twR6hSRVg36FpIR35T4iztAY-oabDA"
+        ,
+        
         { headers: { accept: "application/json" } }
       );
       console.log(await result.data);
       setProductContain(result.data);
+      }catch(err){
+        setError(err)
+      } finally{
+        setIsLoading(false)
+      }
     };
+  
     fetch();
   }, []);
   const handleSearchTerm = (searchItem) => {
