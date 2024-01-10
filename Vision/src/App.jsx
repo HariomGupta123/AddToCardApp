@@ -19,7 +19,7 @@ const page=1;
         setIsLoading(true)
       const result = await axios.get(
         
-          "https://api.unsplash.com/photos/?client_id=tlAnkqDhDQTe1twR6hSRVg36FpIR35T4iztAY-oabDA"
+          "https://api.unsplash.com/photos/?client_id=tlAnkqDhDQTe1twR6hSRVg36FpIR35T4iztAY-oabDA"cd 
         ,
         
         { headers: { accept: "application/json" } }
