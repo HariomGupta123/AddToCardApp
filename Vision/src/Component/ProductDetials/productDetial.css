@@ -18,6 +18,8 @@
 
         .single-product-page {
             display: flex;
+            gap: 20px;
+            padding-bottom: 5px;
             flex-direction: row;
             
 
@@ -28,6 +30,7 @@
 
             .left {
                 width: 350px;
+                
                 background-color: rgba(0, 0, 0, 0.05);
                 flex-shrink: 0;
 
@@ -38,7 +41,8 @@
                 }
 
                 .pro-image {
-                    height: 350px;
+                    height: 325px;
+                    width: 350px;
                     display: block;
                 }
             }

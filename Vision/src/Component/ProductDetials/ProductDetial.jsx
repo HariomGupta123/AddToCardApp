@@ -39,8 +39,8 @@ const {id}=useParams();
           <div className="single-product-page">
             <div className="left">
               <img
-                src={"https://api.unsplash.com/photo/" + addedItem.urls.small}
-                alt=""
+                src={addedItem.urls.small}
+                alt={addedItem.alt_description}
                 className="pro-image"
               />
             </div>
@@ -58,7 +58,12 @@ const {id}=useParams();
                     +
                   </span>
                 </div>
-                <button className="add-to-cart-button" onClick={()=>{handleAddCard(addedItem,quantity)}}>
+                <button
+                  className="add-to-cart-button"
+                  onClick={() => {
+                    handleAddCard(addedItem, quantity);
+                  }}
+                >
                   <FaCartPlus size={20} />
                   ADD TO CART
                 </button>
