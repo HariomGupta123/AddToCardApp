@@ -17,7 +17,11 @@ const decrement=()=>{
     return prevState -1
   })
 }
-const { handleAddCard, handleCardRemove, cardItem } = useContext(UserContext);
+const [addCard,setAddCard]=useState(null)
+const  handleAddCard=()=>{
+  setAddCard(quantity)
+}
+const { handleCardRemove, cardItem } = useContext(UserContext);
 const {id}=useParams();
     useEffect(() => {
       const fetch = async () => {
