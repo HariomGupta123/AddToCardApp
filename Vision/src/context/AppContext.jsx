@@ -19,9 +19,11 @@ const AppContext = ( {children} ) => {
         setCartItem(items)
     }
     const handleCardRemove=(product)=>{
-        let items=[...cardItem];
-        items=items.filter((p)=>p.id== !product.id);
-        setCartItem(items);
+        setCartItem((d)=>{
+            return d.filter((arr,id)=>{
+                return id !==product
+            })
+        })
     }
     return (
         <UserContext.Provider
