@@ -16,12 +16,8 @@ const decrement=()=>{
     if(prevState ===1) return 1;
     return prevState -1
   })
-}
-const [addCard,setAddCard]=useState(null)
-const  handleAddCard=()=>{
-  setAddCard(quantity)
-}
-const { handleCardRemove, cardItem } = useContext(UserContext);
+} 
+const { handleAddCard, handleCardRemove, cardItem } = useContext(UserContext);
 const {id}=useParams();
     useEffect(() => {
       const fetch = async () => {
@@ -49,9 +45,12 @@ const {id}=useParams();
               />
             </div>
             <div className="right">
-              <span className="name"> Product name</span>
-              <span className="price"> Price</span>
-              <span className="desc"> {addedItem.alt_description}</span>
+              <span className="name">
+                {" "}
+                Product name:{addedItem.alt_description}
+              </span>
+              <span className="price"> Price Rs:{addedItem.width}</span>
+              <span className="desc"> {addedItem.description}</span>
               <div className="cart-buttons">
                 <div className="quantity-buttons">
                   <span className="qual" onClick={decrement}>
