@@ -13,6 +13,7 @@ const CardItems = () => {
     handleIcrQuantity,
     handleDecQuantity,
     icrQauntity,
+    Products
   } = useContext(UserContext);
   const id = useParams();
   useEffect(() => {
@@ -43,7 +44,7 @@ const CardItems = () => {
               <MdClose onClick={() => { return handleCardRemove(index); }} className="close-btn" />
               <div className="quantity-buttons">
                 <span className="qual" onClick={()=>{handleDecQuantity()}}>-</span>
-                <span className="qual">{icrQauntity}</span>
+                <span className="qual"> {Products && icrQauntity}</span>
                 <span className="qual" onClick={()=>{handleIcrQuantity()}}>+</span>
               </div>
               <div className="text">
