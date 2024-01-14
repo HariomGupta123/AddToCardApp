@@ -36,7 +36,7 @@ const AppContext = ( {children} ) => {
     }
      const handleDecQuantity = () => {
        setIcrQauntity((dec) => {
-
+           if(dec ===1) return 1
          return dec-1;
        });
      };
