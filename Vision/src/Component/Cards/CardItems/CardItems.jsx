@@ -7,7 +7,13 @@ import axios from "axios";
 import { useParams } from "react-router";
 const CardItems = () => {
   const [addedItem, setAddedItem] = useState([]);
-  const { cardItem, handleCardRemove } = useContext(UserContext);
+  const {
+    cardItem,
+    handleCardRemove,
+    handleIcrQuantity,
+    handleDecQuantity,
+    icrQauntity,
+  } = useContext(UserContext);
   const id = useParams();
   useEffect(() => {
     const added = async () => {
@@ -36,9 +42,9 @@ const CardItems = () => {
               <span className="name">{item.description}</span>
               <MdClose onClick={() => { return handleCardRemove(index); }} className="close-btn" />
               <div className="quantity-buttons">
-                <span className="qual">-</span>
-                <span className="qual">5</span>
-                <span className="qual">+</span>
+                <span className="qual" onClick={()=>{handleDecQuantity()}}>-</span>
+                <span className="qual">{icrQauntity}</span>
+                <span className="qual" onClick={()=>{handleIcrQuantity()}}>+</span>
               </div>
               <div className="text">
                 <span>3</span>

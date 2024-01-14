@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import UserContext from './UserContext';
 const AppContext = ( {children} ) => {
     const location = useLocation();
+    const [icrQauntity,setIcrQauntity]=useState(1);
     const [Products, setProducts] = useState()
     const [cardItem, setCartItem] = useState([]);
     const [cardCount,setCardCount]=useState(0)
@@ -17,6 +18,7 @@ const AppContext = ( {children} ) => {
             items=[...items,product]
         }
         setCartItem(items)
+          setProducts(icrQauntity);
     }
     const handleCardRemove=(product)=>{
         setCartItem((d)=>{
@@ -24,13 +26,43 @@ const AppContext = ( {children} ) => {
                 return id !==product
             })
         })
+        
     }
+    const handleIcrQuantity=()=>{
+        setIcrQauntity((incr)=>{
+            return incr + 1
+        })
+      
+    }
+     const handleDecQuantity = () => {
+       setIcrQauntity((dec) => {
+
+         return dec-1;
+       });
+     };
     return (
-        <UserContext.Provider
-            value={{ Products, setProducts, cardItem, setCartItem, location,cardCount,setCardCount,cardSubTotal,setCardSubTotal,handleAddCard,handleCardRemove }}>
-            {children}
-        </UserContext.Provider>
-    )
+      <UserContext.Provider
+        value={{
+          Products,
+          setProducts,
+          cardItem,
+          setCartItem,
+          location,
+          cardCount,
+          setCardCount,
+          cardSubTotal,
+          setCardSubTotal,
+          handleAddCard,
+          handleCardRemove,
+          handleIcrQuantity,
+          setIcrQauntity,
+          icrQauntity,
+          handleDecQuantity,
+        }}
+      >
+        {children}
+      </UserContext.Provider>
+    );
 }
 
 export default AppContext
