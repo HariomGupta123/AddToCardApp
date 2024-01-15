@@ -4,21 +4,22 @@ import UserContext from './UserContext';
 const AppContext = ( {children} ) => {
     const location = useLocation();
     const [icrQauntity,setIcrQauntity]=useState(1);
-    const [Products, setProducts] = useState()
+    const [Products, setProducts] = useState('')
     const [cardItem, setCartItem] = useState([]);
     const [cardCount,setCardCount]=useState(0)
-    const [cardSubTotal,setCardSubTotal]=useState();
+    const [cardSubTotal,setCardSubTotal]=useState('');
     useEffect(()=>{},[cardItem])
     const handleAddCard=(product,qauntity)=>{
         let items=[...cardItem];
         let index=items.findIndex(p=>p.id===product.id)
         if(index !==-1){
-            items[index] +=qauntity 
+            
+            items[index].qauntity +=qauntity 
         }else{
+            product.qauntity=qauntity
             items=[...items,product]
         }
         setCartItem(items)
-          setProducts(icrQauntity);
     }
     const handleCardRemove=(product)=>{
         setCartItem((d)=>{
@@ -40,6 +41,7 @@ const AppContext = ( {children} ) => {
          return dec-1;
        });
      };
+     const handleCardProductQauntity=(type,product)=>{}
     return (
       <UserContext.Provider
         value={{
@@ -58,6 +60,7 @@ const AppContext = ( {children} ) => {
           setIcrQauntity,
           icrQauntity,
           handleDecQuantity,
+          handleCardProductQauntity
         }}
       >
         {children}

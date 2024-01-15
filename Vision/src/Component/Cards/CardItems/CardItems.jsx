@@ -6,31 +6,13 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 const CardItems = () => {
-  const [addedItem, setAddedItem] = useState([]);
-  const {
-    cardItem,
-    handleCardRemove,
-    handleIcrQuantity,
-    handleDecQuantity,
-    icrQauntity,
-    Products
-  } = useContext(UserContext);
-  const id = useParams();
-  useEffect(() => {
-    const added = async () => {
-      const goods = await axios.get(
-        `https://api.unsplash.com/photos/?client_id=tlAnkqDhDQTe1twR6hSRVg36FpIR35T4iztAY-oabDA`,
-        { headers: { accept: "application/json" } }
-      );
-      console.log(await goods.data);
-      setAddedItem(await goods.data);
-    };
-    added();
-  }, []);
+  const { cardItem, handleCardRemove, handleCardProductQauntity } =
+    useContext(UserContext);
+  
   return (
     <>
       <div className="cart-products">
-        {cardItem.map((item,index) => (
+        {cardItem.map((item, index) => (
           <div className="cart-product" key={index}>
             <div className="img-container">
               <img
@@ -41,16 +23,35 @@ const CardItems = () => {
             </div>
             <div className="prod-detial">
               <span className="name">{item.description}</span>
-              <MdClose onClick={() => { return handleCardRemove(index); }} className="close-btn" />
+              <MdClose
+                onClick={() => {
+                  return handleCardRemove(index);
+                }}
+                className="close-btn"
+              />
               <div className="quantity-buttons">
-                <span className="qual" onClick={()=>{handleDecQuantity()}}>-</span>
-                <span className="qual"> {Products && icrQauntity}</span>
-                <span className="qual" onClick={()=>{handleIcrQuantity()}}>+</span>
+                <span
+                  className="qual"
+                  onClick={() => {
+                    handleCardProductQauntity("dec", item);
+                  }}
+                >
+                  -
+                </span>
+                <span className="qual"> {item.qauntity}</span>
+                <span
+                  className="qual"
+                  onClick={() => {
+                    handleCardProductQauntity("inc", item);
+                  }}
+                >
+                  +
+                </span>
               </div>
               <div className="text">
-                <span>3</span>
+                <span>{item.qauntity}</span>
                 <span>x</span>
-                <span className="highlight">&#8377;{item.width}</span>
+                <span className="highlight">&#8377;{item.width*item.width}</span>
               </div>
             </div>
           </div>
