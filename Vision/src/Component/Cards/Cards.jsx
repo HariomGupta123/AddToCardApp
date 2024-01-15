@@ -1,14 +1,14 @@
 import { MdClose } from "react-icons/md";
-{
-  /*import { BsCartX } from "react-icons/bs"*/
-}
+
+  import { BsCartX } from "react-icons/bs"
+
 import "./card.css";
 import CartItems from "../../assets/newsLetter.png";
 import CardItems from "./CardItems/CardItems";
 import UserContext from "../../context/UserContext";
 import { useContext } from "react";
 const Cards = ({ showCart }) => {
-  const { cardSubTotal } = useContext(UserContext);
+  const { cardSubTotal,cardItem } = useContext(UserContext);
   return (
     <>
       <div className="cart-panel">
@@ -26,12 +26,12 @@ const Cards = ({ showCart }) => {
               </MdClose>
             </span>
           </div>
-          {/*<div className="empty-cart">
+          {!cardItem?.length &&<div className="empty-cart">
                <BsCartX className="svgs"/>
                <span>No product in the cart.</span>
                <button className="return-cta">RETURN TO SHOP</button>
-            </div>*/}
-          <>
+            </div>}
+          { !!cardItem.length && <>
             <CardItems />
             <div className="cart-footer">
               <div className="subtotal">
@@ -42,7 +42,7 @@ const Cards = ({ showCart }) => {
                 <button className="checkout-cta">checkout</button>
               </div>
             </div>
-          </>
+          </>}
         </div>
       </div>
     </>
