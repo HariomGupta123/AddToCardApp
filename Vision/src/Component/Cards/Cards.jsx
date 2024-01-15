@@ -5,7 +5,10 @@ import { MdClose } from "react-icons/md";
 import "./card.css";
 import CartItems from "../../assets/newsLetter.png";
 import CardItems from "./CardItems/CardItems";
+import UserContext from "../../context/UserContext";
+import { useContext } from "react";
 const Cards = ({ showCart }) => {
+  const { cardSubTotal } = useContext(UserContext);
   return (
     <>
       <div className="cart-panel">
@@ -19,7 +22,7 @@ const Cards = ({ showCart }) => {
                   showCart(false);
                 }}
               >
-              <span className="text">close</span>
+                <span className="text">close</span>
               </MdClose>
             </span>
           </div>
@@ -29,11 +32,11 @@ const Cards = ({ showCart }) => {
                <button className="return-cta">RETURN TO SHOP</button>
             </div>*/}
           <>
-         <CardItems/>
+            <CardItems />
             <div className="cart-footer">
               <div className="subtotal">
                 <span className="text">Subtotal:</span>
-                <span className="text-total">&#8377;1234</span>
+                <span className="text-total">&#8377;{cardSubTotal}</span>
               </div>
               <div className="button">
                 <button className="checkout-cta">checkout</button>
