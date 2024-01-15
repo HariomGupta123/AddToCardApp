@@ -8,7 +8,11 @@ const AppContext = ( {children} ) => {
     const [cardItem, setCartItem] = useState([]);
     const [cardCount,setCardCount]=useState(0)
     const [cardSubTotal,setCardSubTotal]=useState('');
-    useEffect(()=>{},[cardItem])
+    useEffect(()=>{
+        let subTotal=0;
+        cardItem.map((item)=>(subTotal += item.width * item.qauntity))
+        setCardSubTotal(subTotal)
+    },[cardItem])
     const handleAddCard=(product,qauntity)=>{
         let items=[...cardItem];
         let index=items.findIndex(p=>p.id===product.id)
