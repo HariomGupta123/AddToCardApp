@@ -41,7 +41,17 @@ const AppContext = ( {children} ) => {
          return dec-1;
        });
      };
-     const handleCardProductQauntity=(type,product)=>{}
+     const handleCardProductQauntity=(type,product)=>{
+         let items=[...cardItem];
+        let index=items.findIndex(p=>p.id===product.id)
+        if(type === "inc"){
+            items[index].qauntity += 1;
+        }else if(type === "dec"){
+            if(items[index].qauntity === 1) return;
+            items[index].qauntity -= 1;
+        }
+        setCartItem(items)
+     }
     return (
       <UserContext.Provider
         value={{

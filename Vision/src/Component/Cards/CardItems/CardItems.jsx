@@ -51,7 +51,7 @@ const CardItems = () => {
               <div className="text">
                 <span>{item.qauntity}</span>
                 <span>x</span>
-                <span className="highlight">&#8377;{item.width*item.width}</span>
+                <span className="highlight">&#8377;{item.width*item.qauntity}</span>
               </div>
             </div>
           </div>
