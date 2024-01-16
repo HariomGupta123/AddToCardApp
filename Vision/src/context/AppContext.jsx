@@ -9,6 +9,9 @@ const AppContext = ( {children} ) => {
     const [cardCount,setCardCount]=useState(0)
     const [cardSubTotal,setCardSubTotal]=useState('');
     useEffect(()=>{
+        let count=0;
+        cardItem.map((item)=>(count +=item.qauntity))
+        setCardCount(count)
         let subTotal=0;
         cardItem.map((item)=>(subTotal += item.width * item.qauntity))
         setCardSubTotal(subTotal)
