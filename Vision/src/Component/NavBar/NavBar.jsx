@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import  { useContext, useState } from "react";
 import "./navBar.css"
 import { FaRegHeart, FaShoppingCart } from "react-icons/fa";
 import Cards from "../Cards/Cards";
@@ -6,11 +6,13 @@ import { Link, useNavigate } from "react-router-dom"
 import LogIn from "./Forms/Login/LogIn";
 import SingUp from "./Forms/SignUp/SingUp";
 import SearchAsImage from "./SearchBarAsImage/SearchAsImage";
+import UserContext from "../../context/UserContext";
 const NavBar = ({ handleSearchTerms  }) => {
   const [show, setShow] = useState(false);
   const [showSignUp, setSignUp] = useState(false);
   const [showSignIn, setSignIn] = useState(false);
   const navigate = useNavigate();
+  const { cardCount } = useContext(UserContext);
   const [searchTerm, setSearchTerm] = useState("");
   const hnadleInput = (e) => {
     setSearchTerm(e.target.value);
@@ -117,10 +119,19 @@ const NavBar = ({ handleSearchTerms  }) => {
                 aria-label="Search"
                 value={searchTerm}
                 onChange={hnadleInput}
-                style={{borderRight:"none"}}
+                style={{ borderRight: "none" }}
               />
-              <button className="btn btn-outline-success" type="submit" style={{borderLeft:"none",borderRadius:"none", backgroundColor:"green"}}>
-                {/*Search*/} <i className="fas fa-search" style={{color:"black"}}></i>
+              <button
+                className="btn btn-outline-success"
+                type="submit"
+                style={{
+                  borderLeft: "none",
+                  borderRadius: "none",
+                  backgroundColor: "green",
+                }}
+              >
+                {/*Search*/}{" "}
+                <i className="fas fa-search" style={{ color: "black" }}></i>
               </button>
               <SearchAsImage />
             </form>
@@ -145,7 +156,7 @@ const NavBar = ({ handleSearchTerms  }) => {
                       setShow(true);
                     }}
                   />
-                  <span className="five">5</span>
+                  <span className="five">{cardCount}</span>
                 </span>
                 {showSignIn && (
                   <LogIn
