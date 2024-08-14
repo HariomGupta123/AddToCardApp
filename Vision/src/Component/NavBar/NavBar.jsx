@@ -43,8 +43,8 @@ const NavBar = ({ handleSearchTerms  }) => {
     }
   };
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="NavBar">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light ">
         <div className="container-fluid">
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -145,19 +145,22 @@ const NavBar = ({ handleSearchTerms  }) => {
             </span>
 
             <div>
-              <div className="">
-                <span className="mr-2">
-                  <FaRegHeart />
-                </span>
+              <div className=" ">
+                <div className="loveCard">
+                  <span className="mr-2">
+                    <FaRegHeart />
+                  </span>
 
-                <span className="cart-icon">
-                  <FaShoppingCart
+                  <span
+                    className="cart-icon"
                     onClick={() => {
                       setShow(true);
                     }}
-                  />
-                  <span className="five">{cardCount}</span>
-                </span>
+                  >
+                    <FaShoppingCart />
+                    <span className="five">{cardCount}</span>
+                  </span>
+                </div>
                 {showSignIn && (
                   <LogIn
                     resisterFromLogin={resisterFromLogin}

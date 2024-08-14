@@ -27,3 +27,29 @@ border: solid rgb(48, 12, 12) 2px;
     background-color: blue;
     color: rgb(255, 255, 255);
 }
+.five{
+   position: absolute; 
+   top: 0%;
+   background-color: blue;
+   width: 30px;
+   padding: 5px;
+   border-radius: 20px 20px 20px ;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    &:hover{
+        background-color: darkkhaki;
+    }
+}
+.loveCard{
+    display: flex; 
+    gap: 20px;
+    cursor: pointer;
+    
+    margin-right: 20px;
+}
+.NavBar{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
