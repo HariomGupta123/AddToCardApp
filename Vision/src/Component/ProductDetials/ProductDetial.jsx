@@ -1,6 +1,5 @@
 import { FaCartPlus, FaFacebook, FaInstagram, FaPinterest, FaTwitter } from "react-icons/fa" 
 import "./productDetial.css"
-import watch from "../../assets/newsletter1.jpg";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import UserContext from "../../context/UserContext";
@@ -17,7 +16,7 @@ const decrement=()=>{
     return prevState -1
   })
 } 
-const { handleAddCard, handleCardRemove, cardItem } = useContext(UserContext);
+const { handleAddCard } = useContext(UserContext);
 const {id}=useParams();
     useEffect(() => {
       const fetch = async () => {

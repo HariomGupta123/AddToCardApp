@@ -1,10 +1,7 @@
-import pro from "../../../assets/newsletter.png";
 import { MdClose } from "react-icons/md";
 import "./CardsItems.css";
 import UserContext from "../../../context/UserContext";
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router";
+import { useContext } from "react";
 const CardItems = () => {
   const { cardItem, handleCardRemove, handleCardProductQauntity } =
     useContext(UserContext);
