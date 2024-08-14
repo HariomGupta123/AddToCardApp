@@ -3,7 +3,6 @@ import { MdClose } from "react-icons/md";
   import { BsCartX } from "react-icons/bs"
 
 import "./card.css";
-import CartItems from "../../assets/newsLetter.png";
 import CardItems from "./CardItems/CardItems";
 import UserContext from "../../context/UserContext";
 import { useContext } from "react";
